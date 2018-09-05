@@ -10,9 +10,8 @@ describe DockingStation do
   # it { is_expected.to respond_to :dock_bike }
 
   # it { is_expected.to respond_to(dock_bike(bike) }
-
-  it '...' do
-    bike = Bike.new
-    expect(subject.dock_bike(bike)).to eq('bike')
+  it "dock bike can store a bike" do
+    expect(subject.dock_bike("first_bike")).to eq(["first_bike"])
   end
+
 end

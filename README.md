@@ -42,5 +42,7 @@ rspec path/to/spec_file.rb
 ## Feature test
 
 load './lib/docking_station.rb'
-
-dock(bike)
+station = DockingStation.new
+first_bike = station.release_bike
+station.store == []
+station.dock_bike(first_bike) == [first_bike]
