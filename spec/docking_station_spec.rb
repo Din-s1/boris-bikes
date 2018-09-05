@@ -15,5 +15,4 @@ describe DockingStation do
     bike = Bike.new
     expect(subject.dock_bike(bike)).to eq('bike')
   end
-
 end

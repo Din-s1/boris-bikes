@@ -39,4 +39,8 @@ rspec path/to/spec_file.rb
 
 ## Acknowledgments
 
-* tbc
+## Feature test
+
+load './lib/docking_station.rb'
+
+dock(bike)
