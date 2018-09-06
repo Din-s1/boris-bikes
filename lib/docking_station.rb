@@ -6,7 +6,8 @@ class DockingStation
   end
 
   def release_bike
-    Bike.new("first_bike")
+    fail 'No bikes available' unless @bike
+    @bike
   end
 
   def store
@@ -24,7 +25,7 @@ end
 
 class Bike
   attr_reader :bike
-  def initialize(bike)
+  def initialize
     @bike = bike
   end
 
