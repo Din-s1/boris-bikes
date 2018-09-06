@@ -41,8 +41,27 @@ rspec path/to/spec_file.rb
 
 ## Feature test
 
+As a maintainer of the system,
+So that I can control the distribution of bikes,
+I'd like docking stations not to accept more bikes than their capacity.
+
 load './lib/docking_station.rb'
 station = DockingStation.new
-first_bike = station.release_bike
-station.store == []
-station.dock_bike(first_bike) == [first_bike]
+bike = Bike.new
+station.dock(bike)
+station.dock(bike) # should fail
+
+
+want to test that the store can only take one element
+store.length should return 1 or raise an error
+
+# Step 14
+
+As a system maintainer,
+So that I can plan the distribution of bikes,
+I want a docking station to have a default capacity of 20 bikes.
+
+load './lib/docking_station.rb'
+station = DockingStation.new
+20.times { station.dock Bike.new }
+station.dock Bike.new

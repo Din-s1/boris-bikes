@@ -1,4 +1,4 @@
-require 'docking_station'
+require 'bike'
 
 describe Bike do
   it 'Working method works on bike' do

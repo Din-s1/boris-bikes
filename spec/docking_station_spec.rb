@@ -7,8 +7,9 @@ describe DockingStation do
 
   it 'docks something' do
     bike = Bike.new
-    expect(subject.dock(bike)).to eq bike
+    expect(subject.dock(bike)).to eq [bike]
   end
+
   describe '#release_bike' do
     it 'gives a working bike' do
       bike = Bike.new
@@ -17,13 +18,21 @@ describe DockingStation do
       end
 
       it 'raises an error when there is no bike' do
+        bike = Bike.new
+        subject.dock(bike)
+        subject.release_bike
         expect{ subject.release_bike}.to raise_error "No bikes available"
       end
     end
 
   it "dock bike can store a bike" do
-    expect(subject.dock("first_bike")).to eq("first_bike")
+    bike = Bike.new
+    expect(subject.dock(bike)).to eq([bike])
   end
 
+  it 'should deny more than 20 bikes' do
+    20.times { subject.dock Bike.new }
+    expect { subject.dock(Bike.new) }.to raise_error("Over capacity")
+  end
 
 end
