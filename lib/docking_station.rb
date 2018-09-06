@@ -1,21 +1,23 @@
 class DockingStation
-  attr_reader
+  attr_reader :bike
 
   def initialize
     @store = []
   end
 
   def release_bike
-    Bike.new("first_bike")
+    fail 'No bikes available' unless @bike
+      @bike
   end
 
   def store
     @store
   end
 
-  def dock_bike(bike)
-    @store << bike
+  def dock(bike)
+    @bike = bike
   end
+
 
   # def show_dock
   #   puts @store
@@ -24,7 +26,7 @@ end
 
 class Bike
   attr_reader :bike
-  def initialize(bike)
+  def initialize
     @bike = bike
   end
 
